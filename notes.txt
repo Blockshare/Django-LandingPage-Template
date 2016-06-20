@@ -1,8 +1,8 @@
 Notes 6/19/16
 
 Home Page Fixes:
-    "Blockshare.IO" needs to remain stable in when button is clicked.
-    Change Blockshare.IO color to black.
     Research designs for blockchain data to be implemented properly.
     Find aa few templates for overall design of site.
-    Will addig Ethereum explorer be a good product idea?
+    Find a good image to use for a background. Give the page some life.
+    Moving line designs in the background of template.
+    Will adding Ethereum explorer be a good product idea?
