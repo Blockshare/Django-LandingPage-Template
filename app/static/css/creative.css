@@ -20,6 +20,8 @@ hr {
 hr.light {
   border-color: white;
 }
+
+
 a {
   -webkit-transition: all 0.0eb3812s;
   -moz-transition: all 0.0s;
@@ -48,6 +50,7 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .bg-primary {
   background-color: #337ab7;
 }

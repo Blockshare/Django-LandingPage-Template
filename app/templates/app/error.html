@@ -82,11 +82,12 @@
             {% csrf_token %}
             <br>
             <input type="text" name="address" class="form-control" placeholder="Enter Bitcoin Address, e.g: 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX" value="" required autofocus>
-            <br>  
+            <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Get Address Data</button>
           </form>
       </div>
       <div class="table-responsive">
+          <center><h1>Please Enter a Valid Bitcoin Address</h1></center>
           <table class="table table-bordered table-hover table-striped tablesorter">
               <thead>
               {% for key in data %}

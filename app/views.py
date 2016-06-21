@@ -2,7 +2,17 @@ from django.shortcuts import render, HttpResponse
 import json
 import requests
 
+"""
+CoinDesk API
+Input -> url=https://api.coindesk.com/v1/bpi/currentprice/USD.json
+Output -> $XXX.XX U.S. Dollar price to Bitcoin
 
+<function pseudocode>
+function btc_usd():
+    url <- CoinDesk API URL
+    return url['bpi']['USD']['rate']
+
+"""
 
 def index(request):
     return HttpResponse("Welcome To Blockshare.IO")
@@ -18,8 +28,9 @@ def address(request):
         json_list.append(response.json())
         parsed_data = []
         btc_data = {}
+        print(response)
         for data in json_list:
-            if data['final_n_tx'] != 0:
+            if data['final_n_tx'] != 0 or not data:
                 btc_data['address'] = data['address']
                 btc_data['final_balance'] = data['final_balance'] * 0.00000001
                 btc_data['total_sent'] = data['total_sent'] * 0.00000001
