@@ -44,6 +44,8 @@ td,
 tr {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   color: black;
+  font-size: -webkit-xxx-large;
+  margin-bottom: -20px;
 }
 p {
   font-size: 16px;
