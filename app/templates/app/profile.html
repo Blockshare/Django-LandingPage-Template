@@ -47,7 +47,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-left">
-                <li><a class="page-scroll" href="/app/address/">Blockshare.IO</a></li>
+                <li>
+                  <a class="page-scroll" href="/app/address/">Blockshare.IO</a></li>
               </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -66,7 +67,9 @@
 
 <header>
     <div class="header-content-inner"><br /><br /><br /><br />
-      <h1 class="text-center"> Blockchain Explorer </h1>
+     <div><h1 class="text-center">
+     <img src="/static/not_img/rect.svg" style="width=auto; height=auto; max-width: 100px; max-height: 150px">Blockchain Explorer</img></h1>
+     </div>
       <div class="col-lg-12">
         <style>
           .form-signin {
@@ -80,7 +83,7 @@
             
                         
             {% csrf_token %}
-            <br>
+            
             <input type="text" name="address" class="form-control" placeholder="Enter Bitcoin Address, e.g: 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX" value="" required autofocus>
             <br>  
             <button class="btn btn-lg btn-primary btn-block" type="submit">Get Address Data</button>
