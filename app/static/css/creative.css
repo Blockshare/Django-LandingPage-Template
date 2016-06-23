@@ -32,6 +32,11 @@ a:hover,
 a:focus {
   color: #337ab7;
 }
+
+td, tr {
+  color: black;
+}
+
 h1,
 h2,
 h3,
@@ -39,14 +44,24 @@ h4,
 h5,
 h6,
 p,
-a,
-td,
-tr {
+a {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   color: black;
   font-size: -webkit-xxx-large;
   margin-bottom: -20px;
 }
+
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #fff;
+  box-shadow: inset 1px 1px 5px 0 #707070;
+  transition: box-shadow 0.3s;
+}
+
+input, input[placeholder] {
+  text-align: center;
+}
+
 p {
   font-size: 16px;
   line-height: 1.5;
@@ -390,6 +405,7 @@ fieldset[disabled] .btn-primary.active {
   border-radius: 300px;
   font-weight: 700;
   text-transform: uppercase;
+  width: 130px;
 }
 .btn-xl {
   padding: 15px 30px;
