@@ -2,21 +2,9 @@ from django.shortcuts import render, HttpResponse
 import json
 import requests
 
-"""
-CoinDesk API
-Input -> url=https://api.coindesk.com/v1/bpi/currentprice/USD.json
-Output -> $XXX.XX U.S. Dollar price to Bitcoin
-
-<function pseudocode>
-function btc_usd():
-    url <- CoinDesk API URL
-    return url['bpi']['USD']['rate']
-
-"""
 
 def index(request):
     return HttpResponse("Welcome To Blockshare.IO")
-
 
 def address(request):
     parsed_data = []
@@ -24,11 +12,10 @@ def address(request):
         addr = request.POST.get('address')
         response = requests.get('https://api.blockcypher.com/v1/btc/main/addrs/' + addr)
         json_list = []
-        all_data = json.loads(response.text)
         json_list.append(response.json())
         parsed_data = []
         btc_data = {}
-        print(response)
+        price = get_price()
         for data in json_list:
             if data['final_n_tx'] != 0 or not data:
                 btc_data['address'] = data['address']
@@ -37,6 +24,7 @@ def address(request):
                 btc_data['total_received'] = data['total_received'] * 0.00000001
                 btc_data['block_height'] = data['txrefs'][0]['block_height']
                 btc_data['confirmations'] = data['txrefs'][0]['confirmations']
+                btc_data['price'] = price
             else:
                 btc_data['address'] = data['address']
                 btc_data['final_balance'] = data['final_balance'] * 0.00000001
@@ -44,5 +32,6 @@ def address(request):
                 btc_data['total_received'] = data['total_received'] * 0.00000001
                 btc_data['block_height'] = "Unavailable"
                 btc_data['confirmations'] = "Unavailable"
+                btc_data['price'] = price
         parsed_data.append(btc_data)
     return render(request, 'app/profile.html', {'data': parsed_data})

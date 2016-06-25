@@ -27,19 +27,14 @@
 <body id="page-top">
 
 <script>
-$(function(){
-    function getPrice(){
-        var jsonURL = 'https://api.coinbase.com/v2/prices/spot';
-        $.getJSON( jsonURL,
-        function(result){
-            var rate = result.data.amount;
-            $('.bpi').html( '$' + rate);
-            document.title = '$' + rate;
-        }); 
-    }
-    var timer = setInterval(getPrice, 60000);
-    getPrice();
-});
+
+  updateBitcoin = function() {
+    $.getJSON("https://api.coinbase.com/v2/prices/spot", function(data) {
+      $('.price').text(data.data.amount);
+      setTimeout(updateBitcoin, 12000);
+    });
+}
+updateBitcoin();
 </script>
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top"  style="background-color: #FFFFFF;">
@@ -61,9 +56,6 @@ $(function(){
                   <a class="page-scroll" href="/app/address/">Blockshare.IO</a></li>
               </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="bpi">Getting Price Data... </a>
-                    </li>
                     <li>
                         <a class="pag-scroll" href="#api">API</a>
                     </li>
@@ -128,6 +120,7 @@ $(function(){
                   <td>{{ key.total_received }}</td>
                   <td>{{ key.block_height }}</td>
                   <td>{{ key.confirmations }}</td>
+                  <td>{{ key.price }}</td>
               </tr>
           {% endfor %}
           
