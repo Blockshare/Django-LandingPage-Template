@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'okane.urls'
+ROOT_URLCONF = 'blockshare.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'okane.wsgi.application'
+WSGI_APPLICATION = 'blockshare.wsgi.application'
 
 
 # Database
